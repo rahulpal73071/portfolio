@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 // Set site-wide metadata
 export const metadata = {
-  title: "Rahul's portfolio",
+  title: `Rahul's portfolio`,
   description: "Hi! I am Rahul Pal a student of IIT Bombay in Chemical department.",
 };
 

@@ -219,7 +219,7 @@ function Hero() {
               transform: `translate(6px, 6px) perspective(1000px) rotateX(${mousePosition.y * 0.008}deg) rotateY(${mousePosition.x * 0.008}deg)`,
             }}
           >
-            Hi, I'm Rahul 👋
+            Hi, I&apos;m Rahul 👋
           </div>
         </div>
 
