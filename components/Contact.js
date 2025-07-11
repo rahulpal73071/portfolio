@@ -1,7 +1,15 @@
-"use client"
-import { useState, useEffect } from "react"
+"use client";
+import { useState, useEffect } from "react";
 
-import { FiSend, FiUser, FiMail, FiMessageSquare, FiCheck, FiX, FiLoader } from "react-icons/fi"
+import {
+  FiSend,
+  FiUser,
+  FiMail,
+  FiMessageSquare,
+  FiCheck,
+  FiX,
+  FiLoader,
+} from "react-icons/fi";
 
 // Floating Background Elements
 function FloatingElements() {
@@ -28,7 +36,11 @@ function FloatingElements() {
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            background: `radial-gradient(circle, ${["#10b981", "#3b82f6", "#8b5cf6", "#f59e0b", "#ef4444"][Math.floor(Math.random() * 5)]} 0%, transparent 70%)`,
+            background: `radial-gradient(circle, ${
+              ["#10b981", "#3b82f6", "#8b5cf6", "#f59e0b", "#ef4444"][
+                Math.floor(Math.random() * 5)
+              ]
+            } 0%, transparent 70%)`,
             animationDelay: `${Math.random() * 3}s`,
             animationDuration: `${4 + Math.random() * 3}s`,
           }}
@@ -51,7 +63,7 @@ function FloatingElements() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 // 3D Input Field Component
@@ -66,26 +78,38 @@ function InputField({
   error,
   isTextarea = false,
 }) {
-  const [isFocused, setIsFocused] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
+  const [isFocused, setIsFocused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="relative group">
       {/* Label */}
       <label
         className={`block text-sm font-semibold mb-3 transition-colors duration-300 ${
-          isFocused ? "text-green-400" : error ? "text-red-400" : "text-gray-300"
+          isFocused
+            ? "text-green-400"
+            : error
+            ? "text-red-400"
+            : "text-gray-300"
         }`}
       >
         {label}
       </label>
 
       {/* Input Container */}
-      <div className="relative" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+      <div
+        className="relative"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         {/* Icon */}
         <div
           className={`absolute left-4 top-1/2 transform -translate-y-1/2 transition-all duration-300 ${
-            isFocused ? "text-green-400 scale-110" : error ? "text-red-400" : "text-gray-400"
+            isFocused
+              ? "text-green-400 scale-110"
+              : error
+              ? "text-red-400"
+              : "text-gray-400"
           }`}
           style={{
             zIndex: 10,
@@ -109,22 +133,22 @@ function InputField({
               isFocused
                 ? "border-green-400/60 bg-green-400/5 shadow-lg shadow-green-400/20"
                 : error
-                  ? "border-red-400/60 bg-red-400/5 shadow-lg shadow-red-400/20"
-                  : isHovered
-                    ? "border-blue-400/40 bg-white/5"
-                    : "border-gray-600/30 bg-gray-900/50"
+                ? "border-red-400/60 bg-red-400/5 shadow-lg shadow-red-400/20"
+                : isHovered
+                ? "border-blue-400/40 bg-white/5"
+                : "border-gray-600/30 bg-gray-900/50"
             } text-white placeholder-gray-400 focus:outline-none`}
             style={{
               background: isFocused
                 ? "linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%)"
                 : error
-                  ? "linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(220, 38, 38, 0.05) 100%)"
-                  : "linear-gradient(135deg, rgba(15, 15, 35, 0.8) 0%, rgba(26, 26, 46, 0.8) 100%)",
+                ? "linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(220, 38, 38, 0.05) 100%)"
+                : "linear-gradient(135deg, rgba(15, 15, 35, 0.8) 0%, rgba(26, 26, 46, 0.8) 100%)",
               boxShadow: isFocused
                 ? "0 10px 30px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
                 : error
-                  ? "0 10px 30px rgba(239, 68, 68, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
-                  : "0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05)",
+                ? "0 10px 30px rgba(239, 68, 68, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
+                : "0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05)",
               transform: isFocused ? "translateY(-2px)" : "translateY(0px)",
             }}
           />
@@ -141,22 +165,22 @@ function InputField({
               isFocused
                 ? "border-green-400/60 bg-green-400/5 shadow-lg shadow-green-400/20"
                 : error
-                  ? "border-red-400/60 bg-red-400/5 shadow-lg shadow-red-400/20"
-                  : isHovered
-                    ? "border-blue-400/40 bg-white/5"
-                    : "border-gray-600/30 bg-gray-900/50"
+                ? "border-red-400/60 bg-red-400/5 shadow-lg shadow-red-400/20"
+                : isHovered
+                ? "border-blue-400/40 bg-white/5"
+                : "border-gray-600/30 bg-gray-900/50"
             } text-white placeholder-gray-400 focus:outline-none`}
             style={{
               background: isFocused
                 ? "linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%)"
                 : error
-                  ? "linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(220, 38, 38, 0.05) 100%)"
-                  : "linear-gradient(135deg, rgba(15, 15, 35, 0.8) 0%, rgba(26, 26, 46, 0.8) 100%)",
+                ? "linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(220, 38, 38, 0.05) 100%)"
+                : "linear-gradient(135deg, rgba(15, 15, 35, 0.8) 0%, rgba(26, 26, 46, 0.8) 100%)",
               boxShadow: isFocused
                 ? "0 10px 30px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
                 : error
-                  ? "0 10px 30px rgba(239, 68, 68, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
-                  : "0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05)",
+                ? "0 10px 30px rgba(239, 68, 68, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
+                : "0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05)",
               transform: isFocused ? "translateY(-2px)" : "translateY(0px)",
             }}
           />
@@ -185,7 +209,7 @@ function InputField({
         </div>
       )}
     </div>
-  )
+  );
 }
 
 // Success/Error Message Component
@@ -204,118 +228,133 @@ function StatusMessage({ type, message }) {
             : "0 10px 30px rgba(239, 68, 68, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
       }}
     >
-      {type === "success" ? <FiCheck className="text-xl animate-bounce" /> : <FiX className="text-xl animate-bounce" />}
+      {type === "success" ? (
+        <FiCheck className="text-xl animate-bounce" />
+      ) : (
+        <FiX className="text-xl animate-bounce" />
+      )}
       <span className="font-medium">{message}</span>
     </div>
-  )
+  );
 }
 
 export default function Contact() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     message: "",
-  })
-  const [errors, setErrors] = useState({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState(null)
-  const [isHovered, setIsHovered] = useState(false)
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({
         x: e.clientX - window.innerWidth / 2,
         y: e.clientY - window.innerHeight / 2,
-      })
-    }
+      });
+    };
 
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   // Handle input changes
   const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
     // Clear error when user starts typing
     if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }))
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
-  }
+  };
 
   // Validate form
   const validateForm = () => {
-    const newErrors = {}
+    const newErrors = {};
 
     if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full name is required"
+      newErrors.fullName = "Full name is required";
     } else if (formData.fullName.trim().length < 2) {
-      newErrors.fullName = "Full name must be at least 2 characters"
+      newErrors.fullName = "Full name must be at least 2 characters";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required"
+      newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address"
+      newErrors.email = "Please enter a valid email address";
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required"
+      newErrors.message = "Message is required";
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Message must be at least 10 characters"
+      newErrors.message = "Message must be at least 10 characters";
     }
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!validateForm()) {
-      return
+      return;
     }
 
-    setIsSubmitting(true)
-    setSubmitStatus(null)
+    setIsSubmitting(true);
+    setSubmitStatus(null);
 
     try {
-      const response = await fetch("https://django-contact-backend.onrender.com/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
+      const response = await fetch(
+        "https://django-contact-backend.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.fullName,
+            email: formData.email,
+            message: formData.message,
+          }),
+        }
+      );
 
       if (response.ok) {
         setSubmitStatus({
           type: "success",
-          message: "Thank you! Your message has been sent successfully. I'll get back to you soon!",
-        })
-        setFormData({ fullName: "", email: "", message: "" })
+          message:
+            "Thank you! Your message has been sent successfully. I'll get back to you soon!",
+        });
+        setFormData({ fullName: "", email: "", message: "" });
       } else {
-        throw new Error("Failed to send message")
+        throw new Error("Failed to send message");
       }
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: "Sorry, there was an error sending your message. Please try again later.",
-      })
+        message:
+          "Sorry, there was an error sending your message. Please try again later.",
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <section
       className="relative min-h-screen px-6 py-24 text-white overflow-hidden"
       style={{
         background: `
-          radial-gradient(circle at ${50 + mousePosition.x * 0.01}% ${50 + mousePosition.y * 0.01}%, 
+          radial-gradient(circle at ${50 + mousePosition.x * 0.01}% ${
+          50 + mousePosition.y * 0.01
+        }%, 
           rgba(16, 185, 129, 0.15) 0%, 
           rgba(59, 130, 246, 0.1) 35%, 
           rgba(139, 92, 246, 0.05) 100%),
@@ -339,7 +378,9 @@ export default function Contact() {
                 4px 4px 0px rgba(0, 0, 0, 0.3),
                 8px 8px 0px rgba(0, 0, 0, 0.2)
               `,
-              transform: `perspective(1000px) rotateX(${mousePosition.y * 0.005}deg) rotateY(${mousePosition.x * 0.005}deg)`,
+              transform: `perspective(1000px) rotateX(${
+                mousePosition.y * 0.005
+              }deg) rotateY(${mousePosition.x * 0.005}deg)`,
             }}
           >
             Get In Touch
@@ -349,7 +390,9 @@ export default function Contact() {
           <div
             className="absolute inset-0 text-5xl md:text-7xl font-black text-green-900/20 transform -z-10"
             style={{
-              transform: `translate(6px, 6px) perspective(1000px) rotateX(${mousePosition.y * 0.003}deg) rotateY(${mousePosition.x * 0.003}deg)`,
+              transform: `translate(6px, 6px) perspective(1000px) rotateX(${
+                mousePosition.y * 0.003
+              }deg) rotateY(${mousePosition.x * 0.003}deg)`,
             }}
           >
             Get In Touch
@@ -359,12 +402,13 @@ export default function Contact() {
           <p
             className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 backdrop-blur-sm bg-white/5 rounded-3xl p-6 border border-white/10 leading-relaxed"
             style={{
-              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+              boxShadow:
+                "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
               transform: `translateZ(${mousePosition.y * 0.02}px)`,
             }}
           >
-            Have a project in mind or just want to chat? I'd love to hear from you! Drop me a message and let's create
-            something amazing together.
+            Have a project in mind or just want to chat? I'd love to hear from
+            you! Drop me a message and let's create something amazing together.
           </p>
         </div>
 
@@ -375,7 +419,8 @@ export default function Contact() {
             <div
               className="backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/10"
               style={{
-                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+                boxShadow:
+                  "0 20px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
               }}
             >
               {/* Full Name Field */}
@@ -430,7 +475,11 @@ export default function Contact() {
                   onMouseLeave={() => setIsHovered(false)}
                   className="group relative px-12 py-4 text-lg font-bold text-white transition-all duration-500 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{
-                    transform: `perspective(1000px) rotateX(${mousePosition.y * 0.003}deg) rotateY(${mousePosition.x * 0.003}deg) ${isHovered ? "scale(1.05)" : "scale(1)"}`,
+                    transform: `perspective(1000px) rotateX(${
+                      mousePosition.y * 0.003
+                    }deg) rotateY(${mousePosition.x * 0.003}deg) ${
+                      isHovered ? "scale(1.05)" : "scale(1)"
+                    }`,
                     transformStyle: "preserve-3d",
                   }}
                 >
@@ -452,7 +501,8 @@ export default function Contact() {
                   <div
                     className="absolute inset-0 rounded-xl transition-all duration-500"
                     style={{
-                      background: "linear-gradient(135deg, #10b981 0%, #3b82f6 100%)",
+                      background:
+                        "linear-gradient(135deg, #10b981 0%, #3b82f6 100%)",
                       boxShadow: isHovered
                         ? "0 20px 40px rgba(16, 185, 129, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3)"
                         : "0 10px 20px rgba(16, 185, 129, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
@@ -463,10 +513,13 @@ export default function Contact() {
                   {/* Button Glow Effect */}
                   <div
                     className={`absolute inset-0 rounded-xl transition-all duration-500 ${
-                      isHovered ? "opacity-100 scale-110" : "opacity-0 scale-100"
+                      isHovered
+                        ? "opacity-100 scale-110"
+                        : "opacity-0 scale-100"
                     }`}
                     style={{
-                      background: "linear-gradient(135deg, #10b981 0%, #3b82f6 100%)",
+                      background:
+                        "linear-gradient(135deg, #10b981 0%, #3b82f6 100%)",
                       filter: "blur(15px)",
                       transform: "translateZ(-10px)",
                     }}
@@ -476,7 +529,8 @@ export default function Contact() {
                   <div
                     className="absolute inset-0 rounded-xl transition-all duration-500"
                     style={{
-                      background: "linear-gradient(135deg, rgba(16, 185, 129, 0.6) 0%, rgba(59, 130, 246, 0.6) 100%)",
+                      background:
+                        "linear-gradient(135deg, rgba(16, 185, 129, 0.6) 0%, rgba(59, 130, 246, 0.6) 100%)",
                       transform: isHovered
                         ? "translate(6px, 6px) translateZ(-15px)"
                         : "translate(4px, 4px) translateZ(-10px)",
@@ -490,7 +544,10 @@ export default function Contact() {
             {/* Status Message */}
             {submitStatus && (
               <div className="mt-6">
-                <StatusMessage type={submitStatus.type} message={submitStatus.message} />
+                <StatusMessage
+                  type={submitStatus.type}
+                  message={submitStatus.message}
+                />
               </div>
             )}
           </form>
@@ -506,5 +563,5 @@ export default function Contact() {
       <div className="absolute bottom-10 left-10 w-20 h-20 border-l-2 border-b-2 border-purple-400/20 rounded-bl-2xl" />
       <div className="absolute bottom-10 right-10 w-20 h-20 border-r-2 border-b-2 border-pink-400/20 rounded-br-2xl" />
     </section>
-  )
+  );
 }
