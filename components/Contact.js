@@ -312,7 +312,7 @@ export default function Contact() {
 
     try {
       const response = await fetch(
-        "https://django-contact-backend.onrender.com/api/contact",
+        "https://django-contact-backend.onrender.com/api/contact/",
         {
           method: "POST",
           headers: {
