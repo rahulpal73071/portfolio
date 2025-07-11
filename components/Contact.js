@@ -283,7 +283,7 @@ export default function Contact() {
     setSubmitStatus(null)
 
     try {
-      const response = await fetch("http://localhost:8000/api/contact", {
+      const response = await fetch("https://django-contact-backend.onrender.com/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
